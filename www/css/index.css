@@ -1,0 +1,101 @@
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #E4E4E4;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  background-color: #A7A7A7;
+  width: 100%;
+  max-width: 800px; /* bom em tablets/desktop */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#chat-container {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mensagens do usuário */
+.message.user {
+  align-self: flex-end;
+  background-color: #555;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 16px;
+}
+
+/* Mensagens da IA */
+.message.ai {
+  align-self: flex-start;
+  background-color: white;
+  color: black;
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+.input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #ddd;
+  gap: 10px;
+}
+
+#inputText {
+  flex: 1;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+#button {
+  min-width: 70px;
+  border-radius: 8px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 12px;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 600px) {
+  .app {
+    max-width: 100%;
+  }
+  #inputText {
+    font-size: 14px;
+    padding: 8px;
+  }
+  #button {
+    min-width: 60px;
+    font-size: 14px;
+  }
+}
