@@ -5,7 +5,7 @@
 
 body {
   background-color: #E4E4E4;
-  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   height: 100vh;
@@ -14,21 +14,21 @@ body {
   align-items: center;
 }
 
+
 .app {
   background-color: #A7A7A7;
   width: 100%;
-  max-width: 800px; /* bom em tablets/desktop */
+  max-width: 800px; 
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: column; 
 }
 
 #chat-container {
-  flex: 1;
-  width: 100%;
-  overflow-y: auto;
+  background-color: #F9F9F9;
   padding: 15px;
+  flex: 1;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -55,8 +55,8 @@ body {
   border-radius: 16px;
   max-width: 80%;
   word-wrap: break-word;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .input-container {
@@ -74,16 +74,92 @@ body {
   border: 1px solid #aaa;
 }
 
-#button {
-  min-width: 70px;
+#forms {
+  background-color: #007b5F;
   border-radius: 8px;
-  background-color: #555;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 0 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  color: #F9F9F9;
+  gap: 12px;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  max-height: 600px;
+  position: relative;
 }
+
+#forms.collapsed {
+  max-height: 20%;
+  padding: 0; 
+}
+
+#forms.collapsed *:not(#toggleForm) {
+  display: none; 
+}
+
+#toggleForm {
+  background-color: #007b5F;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+
+#forms label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#forms input,
+#forms textarea {
+  background-color: #F9F9F9;
+  color: black;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#forms input:focus,
+#forms textarea:focus {
+  border-color: #005f47;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#forms button {
+  background: #04352D;
+  color: #F9F9F9;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#routineForm button {
+  margin-bottom: 4px; 
+}
+
+
+#forms button:hover {
+  background: #222;
+}
+
 
 /* Ajuste para telas pequenas */
 @media (max-width: 600px) {

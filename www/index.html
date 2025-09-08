@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval';
-        connect-src 'self' http://localhost:3001;
-        style-src 'self' 'unsafe-inline';
-        media-src *;
-        img-src 'self' data: content:;
-    ">
-            <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <meta name="color-scheme" content="light dark">
-        <link rel="stylesheet" href="css/index.css">
-        <title>Hello World</title>
-    </head>
-    <body>
-        
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval';
+  connect-src 'self' http://localhost:3001 https://fonts.googleapis.com https://fonts.gstatic.com;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src 'self' data: https://fonts.gstatic.com;
+  media-src *;
+  img-src 'self' data: content:;
+">
 
-                <div class="app">
-                <div id="chat-container"></div> <!-- container das mensagens -->
-                <div class="input-container">
-                    <input type="text" id="inputText">
-                    <button type="button" id="button">Enviar</button>
-                </div>
-            </div>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Criador de Rotina</title>
+  </head>
+  <body>
+    <div class="app">
+    <div id = forms>
+      <form id="routineForm" class="form-container">
+        <label for="age">Idade:</label>
+        <input type="number" id="age" min="5" max="100" required>
 
-           
-          
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-    </body>
+        <label for="wakeTime">Horário que prefere acordar:</label>
+        <input type="time" id="wakeTime" required>
+
+        <label for="sleepTime">Horário que prefere dormir:</label>
+        <input type="time" id="sleepTime" required>
+
+        <label for="goals">Objetivos principais do dia:</label>
+        <textarea id="goals" rows="3" placeholder="Ex: estudar 2h, fazer exercícios"></textarea>
+
+        <label for="fixedTasks">Compromissos fixos (aulas, trabalho, terapias):</label>
+        <textarea id="fixedTasks" rows="3" placeholder="Ex: aula 14h, terapia 18h"></textarea>
+
+        <button type="submit" id="button">Gerar Rotina</button>
+      </form>
+      <button id="toggleForm">▲ Recolher formulário</button>
+      </div>
+
+      <div id="chat-container"></div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
