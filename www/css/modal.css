@@ -1,0 +1,36 @@
+:root{
+    --cor-primaria: #03A086  ;
+    --cor-secundaria: #04352D;
+    --fundo:#FFF
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    background-color: var(fundo);
+
+}
+
+.app{
+    width: 100vw;
+    
+}
+
+.modal{
+    display: flex;
+    background-color: var(--cor-primaria);
+    height: 25vh;
+    border-radius: 25px;
+    justify-content: center;
+
+}
+
+.modal_conteudo{
+    text-align: center;
+}
+
