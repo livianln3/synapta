@@ -13,6 +13,9 @@ body{
     display: flex;
     height: 100vh;
     background-color: var(fundo);
+    padding: 5%;
+     font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+     color: var(--cor-secundaria);
 
 }
 
@@ -24,13 +27,15 @@ body{
 .modal{
     display: flex;
     background-color: var(--cor-primaria);
-    height: 25vh;
+    height: 100vh;
     border-radius: 25px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    
 
 }
 
 .modal_conteudo{
-    text-align: center;
 }
 
