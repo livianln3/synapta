@@ -35,11 +35,11 @@ Organize a rotina em formato de lista com horários aproximados, clara e objetiv
   addMessage("Gerando rotina personalizada...", "user");
 
   try {
-    const res = await fetch("http://localhost:3001/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: prompt }),
-    });
+  const res = await fetch("https://server-synapta.onrender.com/api/chat", { /* api/chat*/
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message: prompt }),
+});
 
     const data = await res.json();
     addMessage(data.reply, "ai");
