@@ -9,7 +9,13 @@ function addMessage(text, sender) {
 
   chatContainer.appendChild(msg);
   chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  if (sender === "ai") {
+    localStorage.setItem("ultimaRotinaIA", text);
+    console.log("Rotina da IA salva no localStorage:", text);
+  }
 }
+
 
 
 form.addEventListener("submit", async (e) => {
@@ -35,17 +41,47 @@ Organize a rotina em formato de lista com horários aproximados, clara e objetiv
   addMessage("Gerando rotina personalizada...", "user");
 
   try {
-  const res = await fetch("https://server-synapta.onrender.com/api/chat", { /* api/chat*/
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: prompt }),
-});
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: prompt }),
+  });
 
-    const data = await res.json();
-    addMessage(data.reply, "ai");
-  } catch (err) {
-    addMessage("Erro ao conectar com a API.", "ai");
+  // pega o texto cru e o content-type
+  const rawText = await res.text();
+  const contentType = res.headers.get("content-type") || "";
+
+  console.log("Resposta bruta do /api/chat:", rawText);
+  console.log("Content-Type:", contentType, "Status:", res.status);
+
+  if (!res.ok) {
+    // servidor respondeu com erro HTTP (404/500 etc)
+    console.error("API retornou status:", res.status);
+    addMessage("Erro: a API retornou status " + res.status, "ai");
+  } else if (contentType.includes("application/json")) {
+    // resposta JSON normal
+    try {
+      const data = JSON.parse(rawText);
+      addMessage(data.reply, "ai");
+    } catch (err) {
+      console.error("Erro ao fazer parse do JSON:", err);
+      addMessage("Erro ao processar resposta JSON.", "ai");
+    }
+  } else {
+    // recebeu HTML/Texto — evita crash ao tentar parsear JSON
+    try {
+      // às vezes o servidor envia JSON mas com content-type errado
+      const maybeJson = JSON.parse(rawText);
+      addMessage(maybeJson.reply || rawText, "ai");
+    } catch (e) {
+      console.error("Resposta inesperada (não JSON).", e);
+      addMessage("Erro: resposta da API não é JSON. Veja console para detalhes.", "ai");
+    }
   }
+} catch (err) {
+  console.error("Erro no fetch:", err);
+  addMessage("Erro ao conectar com a API.", "ai");
+}
 });
 
 document.addEventListener("DOMContentLoaded", () => {
