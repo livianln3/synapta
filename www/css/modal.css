@@ -1,7 +1,7 @@
 :root{
-    --cor-primaria: #03A086  ;
+    --cor-primaria: #03A086;
     --cor-secundaria: #04352D;
-    --fundo:#FFF
+    --fundo:#FFF;
 }
 
 *{
@@ -13,7 +13,7 @@ body{
     display: flex;
     height: 100vh;
     background-color: var(fundo);
-    padding: 5%;
+    padding: 2%;
      font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
      color: var(--cor-secundaria);
 
@@ -26,16 +26,30 @@ body{
 
 .modal{
     display: flex;
+    text-align: center;
     background-color: var(--cor-primaria);
-    height: 100vh;
+    height: 35vh;
     border-radius: 25px;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    
-
 }
 
-.modal_conteudo{
+.modal__conteudo{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 5%;
+}
+
+.botao_fechar{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: white;
+    border: 1px;
+    border-radius: 25px;
 }
 
