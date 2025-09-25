@@ -13,7 +13,6 @@ body{
     display: flex;
     height: 100vh;
     background-color: var(fundo);
-    padding: 2%;
      font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
      color: var(--cor-secundaria);
 
@@ -21,7 +20,14 @@ body{
 
 .app{
     width: 100vw;
-    
+    padding: 2%;
+
+}
+
+.modaloverlay {
+    position: fixed;
+
+
 }
 
 .modal{
@@ -29,27 +35,35 @@ body{
     text-align: center;
     background-color: var(--cor-primaria);
     height: 35vh;
+    width: 96vw;
     border-radius: 25px;
     justify-content: center;
     align-items: center;
+
+
 }
 
-.modal__conteudo{
+.modalconteudo{
     display: flex;
     position: relative;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    gap: 5%;
+    justify-content: center;    
+    height: inherit;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.div_Botao {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    padding: 0 2% 2% 0;
 }
 
 .botao_fechar{
-    position: absolute;
-    top: 10px;
-    right: 10px;
     background-color: transparent;
     color: white;
     border: 1px;
     border-radius: 25px;
+    align-self: flex-end;    
 }
-

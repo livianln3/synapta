@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="539742b2-fdc2-4146-8306-63fd1431ce24" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/www/css/modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/css/modal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/js/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/js/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/tela_inicial.html" beforeDir="false" afterPath="$PROJECT_DIR$/www/tela_inicial.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="33CDariALEyQ8gG5fXJMo5Z5nzV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "e463147e",
+    "last_opened_file_path": "/home/junior/Documentos/teste/teste",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="539742b2-fdc2-4146-8306-63fd1431ce24" name="Changes" comment="" />
+      <created>1758812227912</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1758812227912</updated>
+    </task>
+    <servers />
+  </component>
+</project>
