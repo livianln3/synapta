@@ -25,9 +25,19 @@ body{
 }
 
 .modaloverlay {
+    overflow: auto;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.modaloverlay_escondido {
+    display: none;
     position: fixed;
-
-
+    overflow: auto;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .modal{
@@ -65,5 +75,6 @@ body{
     color: white;
     border: 1px;
     border-radius: 25px;
-    align-self: flex-end;    
+    align-self: flex-end;
+    cursor: pointer;    
 }
