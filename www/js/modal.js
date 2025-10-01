@@ -2,6 +2,8 @@ const modal = document.querySelector('.modaloverlay_escondido') // seleciona a c
 function abrirModal(){
     modal.classList.remove('modaloverlay_escondido');
     modal.classList.add('modaloverlay');
+    const botaoTeste = document.querySelector('#botao_teste');
+    botaoTeste.classList.add('modaloverlay_escondido');
     
 }
 
