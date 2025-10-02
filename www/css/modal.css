@@ -72,9 +72,11 @@ body{
 
 .botao_fechar{
     background-color: transparent;
-    color: white;
     border: 1px;
     border-radius: 25px;
     align-self: flex-end;
     cursor: pointer;    
+    color: var(--cor-secundaria);
+    background-color: #FFF;
+    padding: 1%;
 }
