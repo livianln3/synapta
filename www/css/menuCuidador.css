@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fundo da tela */
+body {
+    /*background-color: #04352D;*/
+    background-color: #ffffff;
+    color: #04352D; /* cor da fonte nos botões */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    /*font-weight: <weight>;
+    font-style: normal;*/
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Logo */
+.logo img {
+    width: 150px; /* ajuste conforme necessário */
+    margin-bottom: 20px;
+}
+
+/* Botões principais */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btnhosp {
+    width: 100px;
+    margin-bottom: -85px;
+}
+
+.btnmais {
+    width: 70px;
+    margin-bottom: 5px; 
+}
+
+.btn {
+    background-color: #007b5F;
+    border: none;
+    padding: 20px 25px;
+    border-radius: 25%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 130px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Espaço reservado para ícones */
+.btn span {
+    margin-top: 80px;
+    text-align: center;
+    color: #04352D;
+}
+
+/* Botão sair */
+.exit {
+    margin-top: 30px;
+}
+
+.btn-exit {
+    background-color: #007b5F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #04352D;
+}
+
+.btn-mais {
+    background-color: #007b5F;
+    border: none;
+    padding: 20px 25px;
+    border-radius: 25%;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 130px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
