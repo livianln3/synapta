@@ -1,0 +1,140 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Synapta - Calendário e Informações Médicas</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<!-- NAVBAR (nova) -->
+<nav class="main-nav" role="navigation" aria-label="Navegação principal">
+    <button class="nav-button" id="nav-calendar" aria-controls="screen-datepicker" aria-current="true"><span class="nav-ico">📅</span> Calendário</button>
+    <button class="nav-button" id="nav-info" aria-controls="screen-info" aria-current="false"><span class="nav-ico">🩺</span> Info Médica</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<!-- Tela: Calendário -->
+<div class="screen active" id="screen-datepicker">
+    <div class="frame">
+        <div class="card">
+            <div class="header">
+                <div class="year" id="header-year">2025</div>
+                <div class="large-date"><span id="header-weekday">Qua,</span> <span id="header-monthday">1 Jan</span></div>
+            </div>
+            <div class="body">
+                <div class="nav">
+                    <button class="btn" id="prev">‹</button>
+                    <div class="month-label" id="month-label">Janeiro 2025</div>
+                    <button class="btn" id="next">›</button>
+                </div>
+                <div class="weekdays" role="row"><div role="columnheader">Dom</div><div role="columnheader">Seg</div><div role="columnheader">Ter</div><div role="columnheader">Qua</div><div role="columnheader">Qui</div><div role="columnheader">Sex</div><div role="columnheader">Sáb</div></div>
+                <div class="grid" id="calendar" role="grid" aria-live="polite" aria-label="Calendário"></div>
+                <div class="actions">
+                    <button id="cancel">CANCELAR</button>
+                    <button id="ok">CONFIRMAR</button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;color:#fff;margin-top:6px">Toque em "Info Médica" para editar os dados do usuário</div>
+    </div>
+</div>
+
+<!-- Tela: Informações médicas -->
+<div class="screen" id="screen-info">
+    <div class="frame">
+        <div class="card">
+            <div class="header-bar">
+                <h2>Informações médicas</h2>
+            </div>
+            <div class="info-section">
+                <div class="info-item">
+                    <div class="info-label">Nome completo</div>
+                    <input id="input-nome" class="info-input" type="text" placeholder="Seu nome" />
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Peso</div>
+                    <input id="input-peso" class="info-input" type="text" placeholder="Ex: 70 kg" />
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Altura</div>
+                    <input id="input-altura" class="info-input" type="text" placeholder="Ex: 1,75" />
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Tipo sanguíneo</div>
+                    <input id="input-sangue" class="info-input" type="text" placeholder="Ex: O+" />
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Remédios de uso contínuo</div>
+                    <textarea id="input-remedios" class="info-textarea" placeholder="Separe por vírgula: Remédio A, Remédio B"></textarea>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Condições médicas</div>
+                    <textarea id="input-condicoes" class="info-textarea" placeholder="Descreva as condições médicas"></textarea>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Alergias</div>
+                    <textarea id="input-alergias" class="info-textarea" placeholder="Liste alergias"></textarea>
+                </div>
+                <div class="extra-section">
+                    <h3>Laudos médicos</h3>
+                    <div class="list-box" id="laudos">Nenhum laudo adicionado.</div>
+                </div>
+                <div class="extra-section">
+                    <h3>Receitas de medicamentos</h3>
+                    <div class="list-box" id="receitas">Nenhuma receita adicionada.</div>
+                </div>
+                <div class="btn-row">
+                    <button class="btn-save" id="save-info">SALVAR</button>
+                    <button class="btn-reset" id="reset-info">RESETAR</button>
+                </div>
+                <div style="margin-top:12px;display:flex;gap:8px">
+                    <button style="flex:1;padding:10px;border-radius:8px;border:none;background:var(--btn-green);font-weight:700;cursor:pointer" id="open-add">ADICIONAR LAUDO/RECEITA</button>
+                    <button style="padding:10px;border-radius:8px;border:none;background:#fff;font-weight:700;cursor:pointer" id="back-to-cal">VOLTAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal adicionar laudo/receita -->
+<div id="modal" class="modal" style="display:none" aria-hidden="true">
+    <div class="box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <strong id="modal-title">Adicionar Laudo / Receita</strong>
+            <button id="modal-close" style="border:none;background:transparent;font-size:18px;cursor:pointer">✕</button>
+        </div>
+        <div class="row"><label>Tipo</label><select id="modal-type"><option value="receita">Receita</option><option value="laudo">Laudo</option></select></div>
+        <div class="row"><label>Data</label><input id="modal-date" type="date" /></div>
+        <div class="row"><label>Descrição</label><textarea id="modal-text" class="info-textarea" placeholder="Descreva o laudo ou receita"></textarea></div>
+        <div style="display:flex;justify-content:flex-end;gap:8px">
+            <button id="modal-add" style="padding:10px 14px;border-radius:8px;border:none;background:var(--btn-green);font-weight:700;cursor:pointer">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<!-- POP DE CONQUISTA -->
+<div id="achievement" class="achievement-popup" aria-live="polite" style="display:none">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-text">
+        <div class="achievement-title" id="ach-title">Conquista desbloqueada!</div>
+        <div class="achievement-desc" id="ach-desc">Você completou uma ação.</div>
+    </div>
+    <button class="close-btn" id="ach-close" aria-label="Fechar">✖</button>
+</div>
+
+<!-- áudio da conquista (adicione seu arquivo em /www/sounds/achievement.mp3) -->
+<audio id="ach-audio" preload="auto">
+    <source src="sounds/achievement.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Cordova (apenas em build Cordova) -->
+<script src="cordova.js"></script>
+<!-- app -->
+<script src="js/index.js"></script>
+
+</body>
+</html>

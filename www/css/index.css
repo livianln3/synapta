@@ -1,0 +1,143 @@
+/* css/index.css */
+:root{
+  --bg-teal: #0D8B76;
+  --header-dark: #023B33;
+  --accent: #004D40;
+  --card-white: #FFFFFF;
+  --muted: #6f7f83;
+  --text-dark: #1E2726;
+  --radius: 12px;
+  --btn-green: #A4DED1;
+  --input-line: #dfe9e7;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:sans-serif;background:var(--bg-teal);}
+body, input, textarea, button, select {font-family: sans-serif;}
+
+/* ---------- NAVBAR ---------- */
+.main-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:56px;
+  background:#fff;
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:space-around;
+  padding:8px 12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  z-index:80;
+}
+.nav-button{
+  flex:1;
+  margin:0 6px;
+  padding:10px 12px;
+  border-radius:10px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-weight:700;
+  color:var(--header-dark);
+  max-width:220px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.nav-button[aria-current="true"],
+.nav-button.active{
+  background:var(--btn-green);
+  color:var(--header-dark);
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+.nav-ico{ font-size:18px; }
+
+/* -------- layout principal -------- */
+.screen{display:none;height:100%;overflow-y:auto}
+.active{display:block}
+.frame{max-width:420px;margin:0 auto;padding-bottom:80px;padding-top:68px}
+
+/* -------- card geral -------- */
+.card{background:var(--card-white);border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,0.12);overflow:hidden;margin:20px}
+
+/* -------- Calendário -------- */
+.header{background:var(--header-dark);color:white;padding:22px 20px 28px 20px}
+.header .year{font-size:12px;opacity:0.9;margin-bottom:8px}
+.header .large-date{font-weight:500;font-size:30px;line-height:1.05}
+
+.body{padding:18px 20px}
+.nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.nav .month-label{flex:1;text-align:center;font-weight:500}
+.nav .btn{background:transparent;border:0;font-size:20px;padding:8px;cursor:pointer;color:var(--muted)}
+.weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:12px;color:#b5c2b9;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;justify-items:center;align-items:center;width:100%}
+.day{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;background:transparent;border:0;cursor:pointer}
+.day.empty{visibility:hidden;pointer-events:none}
+.day.selected{background:var(--accent);color:#fff}
+.day.today{border:2px solid #fff}
+
+.actions{display:flex;justify-content:space-between;margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,0.06)}
+.actions button{background:transparent;border:0;font-weight:600;font-size:14px;cursor:pointer;color:var(--muted)}
+
+/* -------- Info Médica -------- */
+.header-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #ddd;background:#fff}
+.header-bar h2{margin:0;font-size:18px;font-weight:600}
+.info-section{padding:18px}
+.info-item{margin-bottom:12px}
+.info-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+.info-input{width:100%;padding:10px 8px;border:1px solid var(--input-line);border-radius:6px;font-size:15px;color:var(--text-dark);background:#fff}
+.info-textarea{width:100%;min-height:68px;padding:8px;border:1px solid var(--input-line);border-radius:6px;font-size:14px}
+
+.btn-row{display:flex;gap:12px;margin-top:12px}
+.btn-row button{flex:1;border:none;padding:12px;border-radius:8px;font-weight:700;cursor:pointer}
+.btn-save{background:var(--btn-green)}
+.btn-reset{background:#eee}
+
+.extra-section{margin-top:18px}
+.extra-section h3{font-size:14px;color:var(--text-dark);margin-bottom:8px}
+.list-box{background:#fbffff;padding:10px;border:1px solid #eef6f4;border-radius:8px;min-height:42px}
+.list-item{padding:8px;border-radius:6px;background:#fff;border:1px solid #eef6f4;margin-bottom:8px;display:flex;justify-content:space-between;align-items:flex-start}
+.list-item-content{flex:1}
+
+.list-item button{background:#e74c3c;color:#fff;border:none;border-radius:6px;padding:2px 6px;cursor:pointer;font-size:12px;margin-left:6px}
+
+.toast{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 14px;border-radius:8px;opacity:0;pointer-events:none;transition:0.28s;z-index:100}
+
+/* Modal simples */
+.modal{position:fixed;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:60}
+.modal .box{background:#fff;padding:16px;border-radius:8px;width:92%;max-width:480px}
+.modal .row{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+
+/* POP de conquista */
+.achievement-popup{
+  position:fixed;
+  top:20px;
+  right:-420px;
+  background:linear-gradient(135deg,#A4DED1,#7fe0c9);
+  color:var(--header-dark);
+  padding:14px 16px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.18);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:280px;
+  max-width:360px;
+  opacity:0;
+  transition:all 0.45s cubic-bezier(.2,.9,.3,1);
+  z-index:120;
+}
+.achievement-popup.show{ right:18px; opacity:1; }
+.achievement-popup.hide{ right:-420px; opacity:0; }
+.achievement-icon{ font-size:26px; }
+.achievement-text{ flex:1; }
+.achievement-title{ font-weight:800; font-size:16px; margin-bottom:4px; color:var(--text-dark); }
+.achievement-desc{ font-size:13px; color:var(--text-dark); opacity:0.85;}
+.close-btn{ background:transparent; border:0; font-size:18px; cursor:pointer; color:var(--text-dark); padding:6px; border-radius:8px; }
+
+/* footer de navegação (removido no HTML) */
+.nav-footer{position:fixed;bottom:8px;left:0;right:0;display:flex;justify-content:space-around;padding:8px 16px;background:transparent}
+.nav-footer button{background:#fff;border-radius:8px;padding:8px 12px;border:none;font-weight:700;cursor:pointer;color:var(--header-dark)}
+
+@media (max-width:420px){ .frame{padding:0 12px 80px 12px;padding-top:68px} }
